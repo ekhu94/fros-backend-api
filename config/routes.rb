@@ -3,9 +3,8 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :carts
       resources :items
-      resources :users
+      resources :users, only: [:create]
       post '/login', to: 'auth#create'
-      poet '/signup', to: 'users#create'
       get '/profile', to: 'users#profile'
     end
   end
