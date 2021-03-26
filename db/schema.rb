@@ -15,19 +15,9 @@ ActiveRecord::Schema.define(version: 2021_03_26_044805) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "api_v1_inventories", force: :cascade do |t|
-    t.string "name"
-    t.float "price"
-    t.boolean "mens"
-    t.string "front_URL"
-    t.string "back_URL"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "carts", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.integer "total"
+    t.float "total"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_carts_on_user_id"
@@ -44,7 +34,7 @@ ActiveRecord::Schema.define(version: 2021_03_26_044805) do
   end
 
   create_table "items", force: :cascade do |t|
-    t.string "quantity"
+    t.integer "quantity"
     t.bigint "cart_id", null: false
     t.bigint "inventory_id", null: false
     t.datetime "created_at", precision: 6, null: false
