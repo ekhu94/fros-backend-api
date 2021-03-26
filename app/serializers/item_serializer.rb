@@ -1,4 +1,5 @@
 class ItemSerializer < ActiveModel::Serializer
-  attributes :id, :name, :price, :cart_id
-  belongs_to :cart
+  attributes :id, :quantity
+  has_one :cart
+  has_one :inventory
 end
