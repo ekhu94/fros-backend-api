@@ -6,12 +6,13 @@ class Api::V1::AuthController < ApplicationController
         user = User.find_by(email_address: params[:email_address])
         if user && user.authenticate(params[:password])
             token = encode_token({ user_id: user.id })
-            render json: { id: user.id, username: user.username, token: token }, status: :accepted
+            render json: { id: user.id, username: user.username, jwt: token }, status: :accepted
         else
             render json: { message: 'Invalid email address or password' }, status: :unauthorized
         end
     end
 
+    #! may or may not use
     def auto_login
         if current_user
             render json: current_user
