@@ -6,6 +6,11 @@ class Api::V1::InventoriesController < ApplicationController
         render json: allItem 
     end
 
+    def show
+        item = Inventory.find_by(id: params[:id])
+        render json: item
+    end
+
     def mens
         mens = Inventory.where(mens == true)
         render json: mens
