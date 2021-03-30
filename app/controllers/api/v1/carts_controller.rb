@@ -1,4 +1,6 @@
 class Api::V1::CartsController < ApplicationController
+    #! skipping just for testing purposes, please delete after
+    skip_before_action :authorized
 
     def show
         cart = Cart.find(params[:id])

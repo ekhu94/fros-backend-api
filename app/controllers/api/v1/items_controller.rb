@@ -1,4 +1,6 @@
 class Api::V1::ItemsController < ApplicationController
+    #! skipping just for testing purposes, please delete after
+    skip_before_action :authorized
 
     def create
         item_link = Item.create(item_params)
