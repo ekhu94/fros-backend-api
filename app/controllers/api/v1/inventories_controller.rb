@@ -11,6 +11,7 @@ class Api::V1::InventoriesController < ApplicationController
         render json: item
     end
 
+#! Back up action for getting gender specific info
     def mens
         mens = Inventory.where(mens == true)
         render json: mens
