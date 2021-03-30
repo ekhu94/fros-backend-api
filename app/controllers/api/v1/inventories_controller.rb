@@ -7,7 +7,7 @@ class Api::V1::InventoriesController < ApplicationController
     end
 
     def show
-        item = Inventory.find_by(id: params[:id])
+        item = Inventory.find(params[:id])
         render json: item
     end
 
