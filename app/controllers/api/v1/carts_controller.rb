@@ -14,6 +14,7 @@ class Api::V1::CartsController < ApplicationController
 
     def destroy
         cart = Cart.find(params[:id])
+        cart.destroy
         render json: { message: 'Action Complete' }
     end
 
